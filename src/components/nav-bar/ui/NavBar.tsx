@@ -12,20 +12,24 @@ export const NavBar: FC = () => {
             <div className={styles['nav-bar__top']}>
                 <Link to={'/'}>
                     <div className={styles['logo']}>
-                        <img src={'public/images/logo.svg'} alt="logo" />
+                        <img src={'/images/logo.svg'} alt="logo" />
                     </div>
                 </Link>
 
                 <ul className={styles['nav-list']}>
                     {items.filter(item => item.isVisible).map(item => (
-                        <Link to={item.url ?? '#'} key={item.name}>
-                            <li key={item.name} className={styles['nav-item']}>
-                                    <span className={styles['nav-item__icon']}>{item.icon}</span>
-                                    <p className={styles['nav-item__description']}>{item.name}</p>
+                        <Link
+                            to={item.url}
+                            key={item.name}
+                        >
+                            <li className={styles['nav-item']}>
+                                <span className={styles['nav-item__icon']}>{item.icon}</span>
+                                <p className={styles['nav-item__description']}>{item.name}</p>
                             </li>
                         </Link>
                     ))}
                 </ul>
+
             </div>
         </section>
     );
