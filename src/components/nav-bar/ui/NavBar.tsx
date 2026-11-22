@@ -1,10 +1,11 @@
+import type { FC } from "react"
 import { Link } from "react-router";
 import { createNavBarItems } from "@components/nav-bar/config/navbar.config.tsx";
+import { UINavItem } from "@shared/ui/ui-nav-item/ui/UINavItem.tsx";
+
 import styles from './NavBar.module.scss';
-import type { FC } from "react";
 
 export const NavBar: FC = () => {
-
     const items = createNavBarItems();
 
     return (
@@ -18,15 +19,7 @@ export const NavBar: FC = () => {
 
                 <ul className={styles['nav-list']}>
                     {items.filter(item => item.isVisible).map(item => (
-                        <Link
-                            to={item.url}
-                            key={item.name}
-                        >
-                            <li className={styles['nav-item']}>
-                                <span className={styles['nav-item__icon']}>{item.icon}</span>
-                                <p className={styles['nav-item__description']}>{item.name}</p>
-                            </li>
-                        </Link>
+                        <UINavItem key={item.name} {...item}  />
                     ))}
                 </ul>
 

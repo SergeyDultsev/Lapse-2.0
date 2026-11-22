@@ -1,14 +1,5 @@
-import { type ReactNode } from 'react';
 import { UIIcon } from "@shared/ui/ui-icon/UIIcon.tsx";
-
-export interface INavbarItem {
-    name: string;
-    isVisible?: boolean;
-    url?: string;
-    icon?: ReactNode;
-    onClick?: () => void;
-    openInNewTab?: boolean;
-}
+import type { INavbarItem } from "@shared/ui/ui-nav-item/config/nav-item.config.ts";
 
 export const createNavBarItems = (): INavbarItem[] => [
     {
@@ -21,7 +12,7 @@ export const createNavBarItems = (): INavbarItem[] => [
         name: 'Профиль',
         url: '/profile',
         icon: <UIIcon name={'Profile'} />,
-        isVisible: true,
+        isVisible: false,
     },
     {
         name: 'Поиск',
