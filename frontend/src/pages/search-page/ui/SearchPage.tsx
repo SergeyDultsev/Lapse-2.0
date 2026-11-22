@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { UIButton } from "@shared/ui/ui-button/UIButton.tsx";
 
 import styles from "./SearchPage.module.scss";
+import {UIIcon} from "@shared/ui/ui-icon/UIIcon.tsx";
 
 export const SearchPage: FC = () => {
 
@@ -9,7 +10,10 @@ export const SearchPage: FC = () => {
         <main className={'main'}>
             <section className={styles['search-bar']}>
                 <div className={styles['search-bar__top']}>
-                    <input className={styles['search-input']} placeholder={'Поиск...'} />
+                    <div className={styles['search_block']}>
+                        <UIIcon name={'Search'} />
+                        <input className={styles['search-input']} placeholder={'Поиск...'} />
+                    </div>
                     <UIButton
                         size={'md'}
                         variant={'primary'}
