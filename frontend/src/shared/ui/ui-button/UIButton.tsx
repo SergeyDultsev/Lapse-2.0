@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import styles from './UIButton.module.scss';
+import type { FC, ReactNode} from 'react';
 import classNames from 'classnames';
 
 export type tButtonVariant = 'primary' | 'danger' | 'success';
@@ -9,7 +8,7 @@ export type tButtonType = 'button' | 'submit' | 'reset';
 export type tButtonSize = 'sm' | 'md' | 'lg';
 
 export interface IButtonProps  {
-    children: React.ReactNode;
+    children: ReactNode;
     size?: tButtonSize;
     variant?: tButtonVariant;
     className?: string;
@@ -17,7 +16,9 @@ export interface IButtonProps  {
     type?: tButtonType;
 }
 
-export const UIButton: React.FC<IButtonProps > = (
+import styles from './UIButton.module.scss';
+
+export const UIButton: FC<IButtonProps > = (
     {
         children,
         className,

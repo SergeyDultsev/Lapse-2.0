@@ -14,7 +14,7 @@ export const SearchPage: FC = () => {
                         size={'md'}
                         variant={'primary'}
                     >
-                        Поиск
+                        Фильтры
                     </UIButton>
                 </div>
 
@@ -32,6 +32,22 @@ export const SearchPage: FC = () => {
                         Посты
                     </UIButton>
                 </div>
+            </section>
+
+            <section className={styles['user-list']}>
+                <article className={styles['user-item']}>
+                    <div className={styles['user-item_info']}>
+                        <h2 className={styles['user-item_info__name']}>Сергей Дульцев</h2>
+                        <p  className={styles['user-item_info__description']}>CEO и основатель платформы.</p>
+                    </div>
+
+                    <UIButton
+                        size={'sm'}
+                        variant={'primary'}
+                    >
+                        Подписаться
+                    </UIButton>
+                </article>
             </section>
         </main>
     );

@@ -34,3 +34,34 @@
     color: var(--text-secondary);
   }
 }
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-medium);
+  padding: 20px;
+
+  .user-item_info {
+    display: flex;
+    flex-direction: column;
+
+    &__name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    &__description {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+}

@@ -1,7 +1,8 @@
 .ui-button {
+  display: flex;
+  gap: 5px;
   border-radius: var(--border-radius-medium);
   transition: all .2s ease-in-out;
-  font-family: 'Manrope', serif;
   align-self: center;
   font-size: 12px;
 
