@@ -1,17 +1,8 @@
 # Lapse
 
-Пет-проект блога на современном fullstack-стеке: NestJS + PostgreSQL на backend, Next.js (App Router) на frontend.
+Пет-проект блога на современном fullstack-стеке: NestJS + PostgreSQL на backend, React на frontend.
 
 ## Стек
-
-**Backend**
-- [NestJS](https://nestjs.com/)
-- [TypeORM](https://typeorm.io/) + [PostgreSQL](https://www.postgresql.org/)
-- JWT в httpOnly-cookie (access + refresh), Passport, bcrypt, class-validator
-
-**Frontend**
-- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- [TanStack Query](https://tanstack.com/query/latest), [SCSS Modules](https://sass-lang.com/)
 
 **Инфраструктура**
 - Docker Compose: `backend` (Node 20), `frontend` (Node 20), `db` (PostgreSQL 16)
