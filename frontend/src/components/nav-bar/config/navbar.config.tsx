@@ -12,7 +12,7 @@ export const createNavBarItems = (): INavbarItem[] => [
         name: 'Профиль',
         url: '/profile',
         icon: <UIIcon name={'Profile'} />,
-        isVisible: false,
+        isVisible: true,
     },
     {
         name: 'Поиск',
