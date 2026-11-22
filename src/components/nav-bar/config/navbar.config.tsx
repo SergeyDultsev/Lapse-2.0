@@ -1,4 +1,5 @@
-import React, {type ReactNode} from 'react';
+import { type ReactNode } from 'react';
+import { UIIcon } from "@shared/ui/ui-icon/UIIcon.tsx";
 
 export interface INavbarItem {
     name: string;
@@ -13,47 +14,57 @@ export const createNavBarItems = (): INavbarItem[] => [
     {
         name: 'Лента',
         url: '/',
+        icon: <UIIcon name={'Explore'} />,
         isVisible: true,
     },
     {
         name: 'Профиль',
         url: '/profile',
+        icon: <UIIcon name={'Profile'} />,
         isVisible: true,
     },
     {
         name: 'Поиск',
         url: '/search',
+        icon: <UIIcon name={'Search'} />,
         isVisible: true,
     },
     {
         name: 'Написать пост',
+        icon: <UIIcon name={'Write'} />,
         isVisible: false,
     },
     {
         name: 'История',
         url: '/history',
+        icon: <UIIcon name={'History'} />,
         isVisible: false,
     },
     {
         name: 'Лайки',
         url: '/favorite',
+        icon: <UIIcon name={'Favorite'} />,
         isVisible: false,
     },
     {
         name: 'Настройки',
         url: '/settings',
+        icon: <UIIcon name={'Settings'} />,
         isVisible: false,
     },
     {
         name: 'Тема',
+        icon: <UIIcon name={'DarkMode'} />,
         isVisible: true,
     },
     {
         name: 'Выход',
+        icon: <UIIcon name={'Exit'} />,
         isVisible: false,
     },
     {
         name: 'Вход',
+        icon: <UIIcon name={'Exit'} />,
         isVisible: true,
     },
 ];

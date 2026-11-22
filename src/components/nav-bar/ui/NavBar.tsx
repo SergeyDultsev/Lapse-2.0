@@ -22,6 +22,7 @@ export const NavBar: React.FC = () => {
                                 <li
                                     className={styles['nav-item']}
                                 >
+                                    <span className={styles['nav-item__icon']}>{item.icon}</span>
                                     <p className={styles['nav-item__description']}>{item.name}</p>
                                 </li>
                             </Link>
