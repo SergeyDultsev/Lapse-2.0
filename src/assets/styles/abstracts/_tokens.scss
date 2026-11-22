@@ -1,0 +1,52 @@
+:root {
+  /* gray colors */
+  --color-white: #FFFFFF;
+
+  --color-gray-50:  #F7F7F9;
+  --color-gray-100: #F3F2F7;
+  --color-gray-200: #EBEAF0;
+  --color-gray-300: #DBDAE3;
+  --color-gray-opasity: rgb(247 247 249 / 0.9);
+
+  --color-gray-400: #C9C8D2;
+  --color-gray-600: #62616E;
+
+  --color-gray-800: #2E2D36;
+  --color-gray-900: #17161D;
+
+  /* dark colors */
+  --color-dark-900: #0F0F13;
+  --color-dark-800: #15151B;
+  --color-dark-700: #1C1C24;
+  --color-dark-600: #262632;
+  --color-dark-opasity: rgb(21 21 27 / 0.9);
+
+  /* dark text colors */
+  --color-dark-300: #D6D5DE;
+  --color-dark-500: #8E8D9C;
+
+  /* accent colors */
+  --color-accent-500: #7855F6;
+  --color-accent-400: #8E73FF;
+  --color-accent-100: #F3EFFF;
+
+  /* warm colors */
+  --color-warm-100: #F8F4F4;
+
+  /* shared colors */
+  --error-color: #F40000;
+
+  /* radius */
+  --border-radius-small: 8px;
+  --border-radius-medium: 10px;
+
+  /* z-index */
+  --z-base: 0;
+  --z-content: 10;
+  --z-dropdown: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+
+  --color-modal-overlay: rgb(55 65 81 / 0.3);
+}
