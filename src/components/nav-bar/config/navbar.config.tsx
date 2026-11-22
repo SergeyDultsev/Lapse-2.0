@@ -42,7 +42,7 @@ export const createNavBarItems = (): INavbarItem[] => [
     },
     {
         name: 'Лайки',
-        url: '/favorite',
+        url: '/favorites',
         icon: <UIIcon name={'Favorite'} />,
         isVisible: false,
     },
