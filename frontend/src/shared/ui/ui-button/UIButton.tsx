@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './UIButton.module.scss';
 import classNames from 'classnames';
 
-export type tButtonVariant = 'primary' | 'secondary' | 'danger' | 'success';
+export type tButtonVariant = 'primary' | 'danger' | 'success';
 export type tButtonType = 'button' | 'submit' | 'reset';
 export type tButtonSize = 'sm' | 'md' | 'lg';
 
