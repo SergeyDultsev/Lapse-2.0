@@ -15,7 +15,7 @@
 ## Быстрый старт (Docker)
 
 ```bash
-git clone https://github.com/SergeyDultsev/Lapse.git
+git clone https://github.com/SergeyDultsev/Lapse-2.0.git
 cd Lapse
 
 docker compose up -d --build
