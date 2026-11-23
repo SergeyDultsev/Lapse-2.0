@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { useProfileBar } from '@modules/users/components/profile-bar/hooks/useProfileBar';
 import type { IUser } from '@modules/users/model/IUser.ts';
-import { useShortyNumber } from '@shared/utils/useShortyNumber';
+import { shortyNumber } from "@shared/utils/shortyNumber.ts";
 import { UIButton } from "@shared/ui/ui-button/UIButton.tsx";
 
 import styles from './ProfileBar.module.scss';
@@ -16,8 +16,8 @@ export const ProfileBar: FC<IUser> = (user: IUser) => {
                 <div className={styles['profile-info__content']}>
                     <h2 className={styles['profile-info__content__name']}>{ user.username }</h2>
                     <p className={styles['profile-info__content__data']}>{ user.bio }</p>
-                    <p className={styles['profile-info__content__data']}>{ useShortyNumber(user.meta.countFollowers) } подписчиков</p>
-                    <p className={styles['profile-info__content__data']}>{ useShortyNumber(user.meta.countSubscriptions) } подписок</p>
+                    <p className={styles['profile-info__content__data']}>{ shortyNumber(user.meta.countFollowers) } подписчиков</p>
+                    <p className={styles['profile-info__content__data']}>{ shortyNumber(user.meta.countSubscriptions) } подписок</p>
                 </div>
             </div>
             <div className={styles['profile__btns']}>

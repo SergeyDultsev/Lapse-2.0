@@ -1,4 +1,4 @@
-export const useShortyNumber = (number: number) => {
+export const shortyNumber = (number: number) => {
     if (!Number.isInteger(number) || number <= 0) return 0;
 
     switch (true) {
