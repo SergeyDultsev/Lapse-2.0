@@ -44,6 +44,10 @@
     font-size: 13px;
     color: var(--text-secondary);
   }
+
+  .search_block:focus-within {
+    border-color: var(--accent-primary);
+  }
 }
 
 .user-list {
