@@ -16,7 +16,7 @@
 
 ```bash
 git clone https://github.com/SergeyDultsev/Lapse-2.0.git
-cd Lapse
+cd Lapse-2.0
 
 docker compose up -d --build
 ```
