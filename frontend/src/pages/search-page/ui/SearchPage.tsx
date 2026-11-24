@@ -6,7 +6,7 @@ import {UIIcon} from "@shared/ui/ui-icon/UIIcon.tsx";
 import {useDebounce} from "@shared/hooks/useDebounce.ts";
 
 export const SearchPage: FC = () => {
-    const [query, setQuery] = useState();
+    const [query, setQuery] = useState<string | null>('');
 
     const handleSearch = (q: string) => setQuery(q);
     const debouncedSearch = useDebounce(handleSearch);
