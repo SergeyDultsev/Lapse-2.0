@@ -1,0 +1,53 @@
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { PassportStrategy } from '@nestjs/passport';
+import { Strategy } from 'passport-jwt';
+import { ConfigService } from '@nestjs/config';
+import { InjectRepository } from '@nestjs/typeorm';
+import { UserEntity } from '@/resource/user/entites/user.entity.js';
+import { Repository } from 'typeorm';
+import { Request } from 'express';
+
+export type JwtPayload = {
+  userId: string;
+  email: string;
+};
+
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
+  constructor(
+    private configService: ConfigService,
+    @InjectRepository(UserEntity)
+    private userRepository: Repository<UserEntity>,
+  ) {
+    const secret = configService.get<string>('jwt.secret');
+    if (!secret) throw new Error('JWT is not defined');
+
+    super({
+      jwtFromRequest: (req: Request) => {
+        return req.cookies?.accessToken;
+      },
+      ignoreExpiration: false,
+      secretOrKey: secret,
+    });
+  }
+
+  async validate(payload: JwtPayload) {
+    if (!payload.userId) {
+      throw new UnauthorizedException('Invalid token payload');
+    }
+
+    const user = await this.userRepository.findOne({
+      where: { userId: payload.userId },
+    });
+
+    if (!user) {
+      throw new UnauthorizedException('User not found');
+    }
+
+    return {
+      userId: user.userId,
+      email: user.email,
+      username: user.username,
+    };
+  }
+}
