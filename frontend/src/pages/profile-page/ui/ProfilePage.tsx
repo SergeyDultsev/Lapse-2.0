@@ -5,14 +5,14 @@ export const ProfilePage: FC = () => {
 
     const user = {
         userId: '1',
-        username: 'Serejka',
-        email: 'Serejka@',
-        bio: 'Serejka',
+        username: 'Bertram Gilfoyle',
+        email: 'Gilfoyle@gmail.com',
+        bio: 'VP of Architecture on Pied Piper, founder of cybersecurity firm',
         meta: {
             countFollowers: 2,
             countSubscriptions: 3,
-            createdAt: Date,
-            updatedAt: Date,
+            createdAt: new Date(),
+            updatedAt: new Date(),
         }
     }
 

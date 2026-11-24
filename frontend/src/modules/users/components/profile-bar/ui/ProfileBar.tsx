@@ -9,15 +9,21 @@ import styles from './ProfileBar.module.scss';
 export const ProfileBar: FC<IUser> = (user: IUser) => {
     const { buttonMe, buttonUser, me } = useProfileBar(user.userId);
 
+    // TODO: Сделать надписи подписчиков/подписок/поста исходя от реально кол-ва
     return (
         <section className={styles['profile']}>
             <div className={styles['profile-info']}>
                 <div className={styles['profile-info__image']}></div>
                 <div className={styles['profile-info__content']}>
-                    <h2 className={styles['profile-info__content__name']}>{ user.username }</h2>
-                    <p className={styles['profile-info__content__data']}>{ user.bio }</p>
-                    <p className={styles['profile-info__content__data']}>{ shortyNumber(user.meta.countFollowers) } подписчиков</p>
-                    <p className={styles['profile-info__content__data']}>{ shortyNumber(user.meta.countSubscriptions) } подписок</p>
+                    <div className={styles['profile-info__content__top']}>
+                        <h2 className={styles['profile-info__content__name']}>{ user.username }</h2>
+                        <p className={styles['profile-info__content__data']}>{ user.bio }</p>
+                    </div>
+                    <div className={styles['profile-info__content__bottom']}>
+                        <p className={styles['profile-info__content__data']}>{ shortyNumber(user.meta.countFollowers) } подписчика - (ков)</p>
+                        <p className={styles['profile-info__content__data']}>{ shortyNumber(user.meta.countSubscriptions) } подписки - (ок)</p>
+                        <p className={styles['profile-info__content__data']}>{ shortyNumber(user.meta.countPosts) } поста - (ов)</p>
+                    </div>
                 </div>
             </div>
             <div className={styles['profile__btns']}>

@@ -10,20 +10,24 @@ export const NavBar: FC = () => {
 
     return (
         <section className={styles['nav-bar']}>
-            <div className={styles['nav-bar__top']}>
-                <Link to={'/'}>
-                    <div className={styles['logo']}>
-                        <img src={'/images/logo.svg'} alt="logo" />
-                    </div>
-                </Link>
 
-                <ul className={styles['nav-list']}>
-                    {items.filter(item => item.isVisible).map(item => (
-                        <UINavItem key={item.name} {...item}  />
-                    ))}
-                </ul>
+            <div className={styles['nav-bar__wrapper']}>
+                <div className={styles['nav-bar__wrapper__top']}>
+                    <Link to={'/'}>
+                        <div className={styles['logo']}>
+                            <img src={'/images/logo.svg'} alt="logo" />
+                        </div>
+                    </Link>
 
+                    <ul className={styles['nav-list']}>
+                        {items.filter(item => item.isVisible).map(item => (
+                            <UINavItem key={item.name} {...item}  />
+                        ))}
+                    </ul>
+
+                </div>
             </div>
+
         </section>
     );
 };

@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import {Link, useLocation} from 'react-router'
-import type { INavbarItem } from "@components/nav-bar/config/navbar.config.tsx";
+import type { INavbarItem } from "@shared/ui/ui-nav-item/config/nav-item.config.ts";
 
 import styles from './UINavItem.module.scss';
 

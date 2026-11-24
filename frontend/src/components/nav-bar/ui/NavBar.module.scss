@@ -1,18 +1,25 @@
 .nav-bar {
-  position: fixed;
-  z-index: var(--z-content);
-  width: 100%;
-  max-width: 200px;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  position: relative;
+  height: 100vh;
 
-  &__top {
+  &__wrapper {
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    z-index: var(--z-content);
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    gap: 30px;
+    width: 100%;
+    max-width: 200px;
+
+    &__top {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
   }
+
 }
 
 .nav-list {

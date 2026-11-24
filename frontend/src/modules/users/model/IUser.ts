@@ -6,6 +6,7 @@ export interface IUser {
     meta: {
         countFollowers: number,
         countSubscriptions: number,
+        countPosts: number,
         createdAt: Date,
         updatedAt: Date,
     }
