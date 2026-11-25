@@ -11,12 +11,12 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import type { Response } from 'express';
-import { AuthService } from '@resources/auth/auth.service.js';
-import { LoginDto } from '@resources/auth/dto/login.dto.js';
-import { RegisterDto } from '@resources/auth/dto/register.dto.js';
-import { JwtGuard } from '@resources/auth/guards/jwt.guard.js';
-import { JwtPayload } from '@resources/auth/strategies/jwt.strategy.js';
-import { JwtRefreshGuard } from '@resources/auth/guards/jwt-refresh.guard.js';
+import { AuthService } from './auth.service.js';
+import { LoginDto } from './dto/login.dto.js';
+import { RegisterDto } from './dto/register.dto.js';
+import { JwtGuard } from './guards/jwt.guard.js';
+import { JwtPayload } from './strategies/jwt.strategy.js';
+import { JwtRefreshGuard } from './guards/jwt-refresh.guard.js';
 import { cookieConfig } from '@/config/cookie.config.js';
 
 @Controller('auth')

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service.js';
 import { AuthController } from './auth.controller.js';
-import { UserService } from '@/resource/user/user.service.js';
-import { JwtStrategy } from '@/resource/auth/strategies/jwt.strategy.js';
-import { JwtRefreshStrategy } from '@/resource/auth/strategies/jwt-refresh-strategy.js';
+import { UserService } from '../user/user.service.js';
+import { JwtStrategy } from './strategies/jwt.strategy.js';
+import { JwtRefreshStrategy } from './strategies/jwt-refresh-strategy.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserEntity } from '@/resource/user/entites/user.entity.js';
+import { UserEntity } from '../user/entites/user.entity.js';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
