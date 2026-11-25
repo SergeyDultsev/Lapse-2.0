@@ -17,7 +17,7 @@ import { RegisterDto } from './dto/register.dto.js';
 import { JwtGuard } from './guards/jwt.guard.js';
 import { JwtPayload } from './strategies/jwt.strategy.js';
 import { JwtRefreshGuard } from './guards/jwt-refresh.guard.js';
-import { cookieConfig } from '@/config/cookie.config.js';
+import { cookieConfig } from '@/config/cookie.config';
 
 @Controller('auth')
 export class AuthController {

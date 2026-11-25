@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
-import { UserModule } from '@/resources/user/user.module.js';
-import { AuthModule } from '@/resources/auth/auth.module.js';
+import { UserModule } from '@/resources/user/user.module';
+import { AuthModule } from '@/resources/auth/auth.module';
 import { ConfigModule, ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import databaseConfig from '@/config/database.config.js';
-import jwtConfig from '@/config/jwt.config.js';
+import databaseConfig from '@/config/database.config';
+import jwtConfig from '@/config/jwt.config';
 
 @Module({
   imports: [

@@ -7,13 +7,13 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { UserEntity } from '@resources/user/entites/user.entity.js';
+import { UserEntity } from '@resources/user/entites/user.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { JwtPayload } from '@resources/auth/strategies/jwt.strategy.js';
-import { RegisterDto } from '@resources/auth/dto/register.dto.js';
-import { LoginDto } from '@resources/auth/dto/login.dto.js';
-import { UserService } from '@resources//user/user.service.js';
+import { JwtPayload } from '@resources/auth/strategies/jwt.strategy';
+import { RegisterDto } from '@resources/auth/dto/register.dto';
+import { LoginDto } from '@resources/auth/dto/login.dto';
+import { UserService } from '@resources/user/user.service';
 import type { SignOptions } from 'jsonwebtoken';
 
 @Injectable()

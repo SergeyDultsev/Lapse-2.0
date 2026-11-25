@@ -1,10 +1,6 @@
 import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { resolve } from 'path';
 
 config({ path: resolve(__dirname, '..', '..', '.env') });
 
@@ -15,7 +11,7 @@ export default new DataSource({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [resolve(__dirname, '..', 'resource', '**', '*.entity.{ts,js}')],
+  entities: [resolve(__dirname, '..', 'resources', '**', '*.entity.{ts,js}')],
   migrations: [resolve(__dirname, '..', 'migrations', '*.{ts,js}')],
   synchronize: true,
 });

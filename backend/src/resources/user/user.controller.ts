@@ -6,8 +6,8 @@ import {
   Param,
   Query,
 } from '@nestjs/common';
-import { UserService } from '@resources/user/user.service.js';
-import { QueryDto } from '@common/dto/query-dto.js';
+import { UserService } from '@resources/user/user.service';
+import { QueryDto } from '@common/dto/query-dto';
 
 @Controller('users')
 export class UserController {

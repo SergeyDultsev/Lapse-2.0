@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserEntity } from '@resources/user/entites/user.entity.js';
+import { UserEntity } from '@resources/user/entites/user.entity';
 import * as bcrypt from 'bcrypt';
 import { Seeder } from 'typeorm-extension';
 import { DataSource } from 'typeorm';
