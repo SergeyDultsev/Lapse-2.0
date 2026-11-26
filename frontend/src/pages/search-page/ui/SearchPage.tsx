@@ -1,25 +1,49 @@
-import {type FC, useState } from "react";
+import {type FC, useEffect, useState} from "react";
 import { UIButton } from "@shared/ui/ui-button/UIButton.tsx";
 
 import styles from "./SearchPage.module.scss";
 import { UIIcon } from "@shared/ui/ui-icon/UIIcon.tsx";
 import { useDebounce } from "@shared/hooks/useDebounce.ts";
-import { useUsersRecommendation } from "@modules/users/model/user.queries.ts";
+import { useUsersRecommendation, useUsersSearch } from "@modules/users/model/user.queries.ts";
 import { useNavigate } from "react-router";
-import {Avatar} from "@modules/users/components/avatar/ui/Avatar.tsx";
+import { Avatar } from "@modules/users/components/avatar/ui/Avatar.tsx";
+import type { IUser } from "@modules/users/model/IUser.ts";
 
 export const SearchPage: FC = () => {
-    const [query, setQuery] = useState<string | null>('');
+    const [query, setQuery] = useState<string>('');
+    const [debouncedSearch, setDebouncedSearch] = useState<string>('');
+
     const navigate = useNavigate();
 
-    const { data: recommendations, isLoading, isError } = useUsersRecommendation();
+    const updateDebouncedSearch  = useDebounce((q: string) => {
+        setDebouncedSearch(q);
+    });
 
-    const handleSearch = (q: string) => setQuery(q);
-    const debouncedSearch = useDebounce(handleSearch);
-
-    const handleRedirect = (userId: string) => {
-        navigate(`/profile/${userId}`)
+    const handleSearch = (val: string) => {
+        setQuery(val);
+        updateDebouncedSearch(val);
     }
+
+    const hasQuery = Boolean(debouncedSearch.trim());
+
+    const {
+        data: recommendations = [],
+        isLoading: isLoadingRecommendation,
+        isError: isErrorRecommendation,
+    } = useUsersRecommendation();
+
+    const {
+        data: searchData = [],
+        isLoading: isLoadingSearch,
+        isError: isErrorSearch,
+    } = useUsersSearch(query);
+
+    const handleRedirect = (userId: string) => navigate(`/profile/${userId}`);
+
+    const isLoading = hasQuery ? isLoadingSearch : isLoadingRecommendation;
+    const isError = hasQuery ? isErrorSearch : isErrorRecommendation;
+
+    const usersRender: IUser[] = hasQuery ? searchData : recommendations;
 
     return (
         <main className={'main'}>
@@ -30,7 +54,7 @@ export const SearchPage: FC = () => {
                         <input
                             className={styles['search-input']}
                             placeholder={'Поиск...'}
-                            onChange={(e) => debouncedSearch(e.target.value)}
+                            onChange={(e) => handleSearch(e.target.value)}
                         />
                     </div>
                     <UIButton
@@ -61,7 +85,7 @@ export const SearchPage: FC = () => {
                 {isLoading && <p>Загрузка рекомендаций...</p>}
                 {isError && <p>Не удалось загрузить пользователей</p>}
 
-                {recommendations?.map((user) => (
+                {usersRender?.map((user) => (
                     <article
                         key={user.userId}
                         className={styles['user-item']}

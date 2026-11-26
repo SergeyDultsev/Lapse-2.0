@@ -44,8 +44,28 @@ export const useUserApi = () => {
         return users.data;
     }
 
+    const getSearch = async (query: string, signal?: AbortSignal) => {
+        const baseUrl = import.meta.env.VITE_API_URL;
+
+        const response  = await fetch(`${baseUrl}/users/?search=${query}`, {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            signal: signal,
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const users: IResponse<IUser[]> = await response.json();
+
+        return users.data;
+    }
+
     return {
         getUserById,
         getRecommendation,
+        getSearch,
     }
 }

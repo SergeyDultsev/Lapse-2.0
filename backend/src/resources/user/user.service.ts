@@ -55,7 +55,11 @@ export class UserService {
    * @returns Коллекцию сериализованных пользователей
    */
   async getUsersSearch(query: QueryDto) {
-    const { search } = query;
+    const search = query.search?.trim();
+
+    if (!search) {
+      return [];
+    }
 
     const users = await this.userRepository.find({
       where: [

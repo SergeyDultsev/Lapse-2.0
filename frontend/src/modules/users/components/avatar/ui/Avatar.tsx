@@ -8,8 +8,6 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = ({ avatarUrl, username }) => {
-
-    console.log(avatarUrl)
     return (
       <img
           className={styles['user-avatar']}

@@ -14,6 +14,19 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   // TODO: Доделать
+  @Get()
+  @HttpCode(200)
+  async usersSearch(@Query() query: QueryDto) {
+    const users = await this.userService.getUsersSearch(query);
+
+    return {
+      data: users,
+      message: 'Users recommendation',
+      statusCode: HttpStatus.OK,
+    };
+  }
+
+  // TODO: Доделать
   @Get(['/recommendation', '/recommendation/:id'])
   @HttpCode(200)
   async usersRecommendation(@Param('id') id: string) {
@@ -34,19 +47,6 @@ export class UserController {
     return {
       data: user,
       message: `User ${user.username} with id ${id}`,
-      statusCode: HttpStatus.OK,
-    };
-  }
-
-  // TODO: Доделать
-  @Get('/search')
-  @HttpCode(200)
-  async usersSearch(@Query() query: QueryDto) {
-    const users = await this.userService.getUsersSearch(query);
-
-    return {
-      data: users,
-      message: 'Users recommendation',
       statusCode: HttpStatus.OK,
     };
   }

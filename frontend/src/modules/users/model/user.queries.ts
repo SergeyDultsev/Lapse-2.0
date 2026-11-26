@@ -20,3 +20,12 @@ export const useUsersRecommendation = (id?: string | null) => {
         queryFn: ({ signal }) => getRecommendation(id, signal),
     });
 };
+
+export const useUsersSearch = (query?: string) => {
+    const { getSearch } = useUserApi();
+
+    return useQuery({
+        queryKey: userKeys.search(query),
+        queryFn: ({ signal }) => getSearch(query, signal),
+    });
+};
