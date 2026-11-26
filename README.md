@@ -23,6 +23,22 @@ docker compose up -d --build
 
 ## Полезные npm-скрипты
 
-**Backend:** `start:dev` (watch-режим), `build`, `lint`, `test`, `seed`, `migration:generate` / `migration:run` / `migration:revert`, `shell` (шелл в docker-контейнере).
+**Backend:** `start:dev`
+
+```bash
+docker compose exec backend npm run migration:generate
+```
+
+```bash
+docker compose exec backend npm run migration:run
+```
+
+```bash
+docker compose exec backend npm run migration:revert
+```
+
+```bash
+docker compose exec backend npm run seed
+```
 
 **Frontend:** `dev` (порт 5000), `build`, `lint`, `format`.
