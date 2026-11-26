@@ -103,6 +103,9 @@ export const SearchPage: FC = () => {
                         <UIButton
                             size={'sm'}
                             variant={'primary'}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                            }}
                         >
                             Подписаться
                         </UIButton>
