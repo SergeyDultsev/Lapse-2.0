@@ -68,7 +68,7 @@ export const SearchPage: FC = () => {
                         onClick={() => handleRedirect(user.userId)}
                     >
                         <div className={styles['user-item__left']}>
-                            <Avatar user={user} />
+                            <Avatar avatarUrl={user.avatarUrl} username={user.username} />
 
                             <div className={styles['user-item__left__info']}>
                                 <h2 className={styles['user-item__left__info__name']}>{user.username}</h2>

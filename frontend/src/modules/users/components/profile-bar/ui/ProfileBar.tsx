@@ -15,7 +15,7 @@ export const ProfileBar: FC<IUser> = (user: IUser) => {
     return (
         <section className={styles['profile']}>
             <div className={styles['profile-info']}>
-                <Avatar user={user} />
+                <Avatar avatarUrl={user.avatarUrl} username={user.username} />
 
                 <div className={styles['profile-info__content']}>
                     <div className={styles['profile-info__content__top']}>
