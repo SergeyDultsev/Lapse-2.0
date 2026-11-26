@@ -1,24 +1,18 @@
 import type { FC } from "react";
 import { ProfileBar } from "@modules/users/components/profile-bar/ui/ProfileBar.tsx";
+import { useUser } from "@modules/users/model/user.queries.ts";
+import {useParams} from "react-router";
 
 export const ProfilePage: FC = () => {
-
-    const user = {
-        userId: '1',
-        username: 'Bertram Gilfoyle',
-        email: 'Gilfoyle@gmail.com',
-        bio: 'VP of Architecture on Pied Piper, founder of cybersecurity firm',
-        meta: {
-            countFollowers: 2,
-            countSubscriptions: 3,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-        }
-    }
+    const { userId } = useParams<{ userId: string }>()
+    const { data: user, isLoading, isError } = useUser(userId);
 
     return (
         <main className={'main'}>
-            <ProfileBar {...user} />
+            {isLoading && <p>Загрузка пользователя...</p>}
+            {isError && <p>Не удалось загрузить пользователя</p>}
+
+            {user && <ProfileBar {...user} />}
         </main>
     );
 };

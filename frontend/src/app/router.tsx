@@ -2,7 +2,7 @@ import { FavoritesPage, FeedPage, HistoryPage, ProfilePage, SearchPage, Settings
 
 export const routers = [
     { path: '/', element: <FeedPage /> },
-    { path: '/profile', element: <ProfilePage /> },
+    { path: '/profile/:userId', element: <ProfilePage /> },
     { path: '/search', element: <SearchPage /> },
     { path: '/history', element: <HistoryPage /> },
     { path: '/favorites', element: <FavoritesPage /> },

@@ -9,6 +9,7 @@ import styles from './ProfileBar.module.scss';
 export const ProfileBar: FC<IUser> = (user: IUser) => {
     const { buttonMe, buttonUser, me } = useProfileBar(user.userId);
 
+
     // TODO: Сделать надписи подписчиков/подписок/поста исходя от реально кол-ва
     return (
         <section className={styles['profile']}>

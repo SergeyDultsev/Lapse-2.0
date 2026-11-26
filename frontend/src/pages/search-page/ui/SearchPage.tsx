@@ -1,15 +1,24 @@
-import {type FC, useState} from "react";
+import {type FC, useState } from "react";
 import { UIButton } from "@shared/ui/ui-button/UIButton.tsx";
 
 import styles from "./SearchPage.module.scss";
-import {UIIcon} from "@shared/ui/ui-icon/UIIcon.tsx";
-import {useDebounce} from "@shared/hooks/useDebounce.ts";
+import { UIIcon } from "@shared/ui/ui-icon/UIIcon.tsx";
+import { useDebounce } from "@shared/hooks/useDebounce.ts";
+import { useUsersRecommendation } from "@modules/users/model/user.queries.ts";
+import { useNavigate } from "react-router";
 
 export const SearchPage: FC = () => {
     const [query, setQuery] = useState<string | null>('');
+    const navigate = useNavigate();
+
+    const { data: recommendations, isLoading, isError } = useUsersRecommendation();
 
     const handleSearch = (q: string) => setQuery(q);
     const debouncedSearch = useDebounce(handleSearch);
+
+    const handleRedirect = (userId: string) => {
+        navigate(`/profile/${userId}`)
+    }
 
     return (
         <main className={'main'}>
@@ -48,19 +57,28 @@ export const SearchPage: FC = () => {
             </section>
 
             <section className={styles['user-list']}>
-                <article className={styles['user-item']}>
-                    <div className={styles['user-item_info']}>
-                        <h2 className={styles['user-item_info__name']}>Сергей Дульцев</h2>
-                        <p  className={styles['user-item_info__description']}>CEO и основатель платформы.</p>
-                    </div>
+                {isLoading && <p>Загрузка рекомендаций...</p>}
+                {isError && <p>Не удалось загрузить пользователей</p>}
 
-                    <UIButton
-                        size={'sm'}
-                        variant={'primary'}
+                {recommendations?.map((user) => (
+                    <article
+                        key={user.userId}
+                        className={styles['user-item']}
+                        onClick={() => handleRedirect(user.userId)}
                     >
-                        Подписаться
-                    </UIButton>
-                </article>
+                        <div className={styles['user-item_info']}>
+                            <h2 className={styles['user-item_info__name']}>{user.username}</h2>
+                            <p className={styles['user-item_info__description']}>{user.bio}</p>
+                        </div>
+
+                        <UIButton
+                            size={'sm'}
+                            variant={'primary'}
+                        >
+                            Подписаться
+                        </UIButton>
+                    </article>
+                ))}
             </section>
         </main>
     );
