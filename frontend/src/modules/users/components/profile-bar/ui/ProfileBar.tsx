@@ -5,6 +5,7 @@ import { shortyNumber } from "@shared/utils/shortyNumber.ts";
 import { UIButton } from "@shared/ui/ui-button/UIButton.tsx";
 
 import styles from './ProfileBar.module.scss';
+import {Avatar} from "@modules/users/components/avatar/ui/Avatar.tsx";
 
 export const ProfileBar: FC<IUser> = (user: IUser) => {
     const { buttonMe, buttonUser, me } = useProfileBar(user.userId);
@@ -14,7 +15,8 @@ export const ProfileBar: FC<IUser> = (user: IUser) => {
     return (
         <section className={styles['profile']}>
             <div className={styles['profile-info']}>
-                <div className={styles['profile-info__image']}></div>
+                <Avatar user={user} />
+
                 <div className={styles['profile-info__content']}>
                     <div className={styles['profile-info__content__top']}>
                         <h2 className={styles['profile-info__content__name']}>{ user.username }</h2>

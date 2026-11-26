@@ -6,6 +6,7 @@ import { UIIcon } from "@shared/ui/ui-icon/UIIcon.tsx";
 import { useDebounce } from "@shared/hooks/useDebounce.ts";
 import { useUsersRecommendation } from "@modules/users/model/user.queries.ts";
 import { useNavigate } from "react-router";
+import {Avatar} from "@modules/users/components/avatar/ui/Avatar.tsx";
 
 export const SearchPage: FC = () => {
     const [query, setQuery] = useState<string | null>('');
@@ -66,9 +67,13 @@ export const SearchPage: FC = () => {
                         className={styles['user-item']}
                         onClick={() => handleRedirect(user.userId)}
                     >
-                        <div className={styles['user-item_info']}>
-                            <h2 className={styles['user-item_info__name']}>{user.username}</h2>
-                            <p className={styles['user-item_info__description']}>{user.bio}</p>
+                        <div className={styles['user-item__left']}>
+                            <Avatar user={user} />
+
+                            <div className={styles['user-item__left__info']}>
+                                <h2 className={styles['user-item__left__info__name']}>{user.username}</h2>
+                                <p className={styles['user-item__left__info__description']}>{user.bio}</p>
+                            </div>
                         </div>
 
                         <UIButton

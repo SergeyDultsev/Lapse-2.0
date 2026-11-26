@@ -32,6 +32,11 @@ export class UserEntity {
   bio: string;
 
   @Column({
+    default: '',
+  })
+  avatarUrl: string;
+
+  @Column({
     default: 0,
   })
   countFollowers: number;

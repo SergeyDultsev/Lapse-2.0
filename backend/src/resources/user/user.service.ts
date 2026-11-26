@@ -39,7 +39,7 @@ export class UserService {
    *
    * @returns Коллекцию сериализованных пользователей
    */
-  async getUsersRecommendation(userId: string) {
+  async getUsersRecommendation(userId: string | null) {
     const users = await this.userRepository.find();
 
     // TODO: Сделать, чтобы выдавались пользователи которые подписаны на подписку
@@ -80,6 +80,7 @@ export class UserService {
       username: user.username,
       email: user.email,
       bio: user.bio,
+      avatarUrl: user.avatarUrl,
       meta: {
         countFollowers: user.countFollowers,
         countSubscriptions: user.countSubscriptions,

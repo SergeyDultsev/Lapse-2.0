@@ -13,6 +13,19 @@ import { QueryDto } from '@common/dto/query-dto';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  // TODO: Доделать
+  @Get(['/recommendation', '/recommendation/:id'])
+  @HttpCode(200)
+  async usersRecommendation(@Param('id') id: string) {
+    const users = await this.userService.getUsersRecommendation(id ?? null);
+
+    return {
+      data: users,
+      message: 'Users recommendation',
+      statusCode: HttpStatus.OK,
+    };
+  }
+
   @Get(':id')
   @HttpCode(200)
   async findUserById(@Param('id') id: string) {
@@ -21,19 +34,6 @@ export class UserController {
     return {
       data: user,
       message: `User ${user.username} with id ${id}`,
-      statusCode: HttpStatus.OK,
-    };
-  }
-
-  // TODO: Доделать
-  @Get('/recommendation/:id')
-  @HttpCode(200)
-  async usersRecommendation(@Param('id') id: string) {
-    const users = await this.userService.getUsersRecommendation(id);
-
-    return {
-      data: users,
-      message: 'Users recommendation',
       statusCode: HttpStatus.OK,
     };
   }
