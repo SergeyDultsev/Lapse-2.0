@@ -2,7 +2,11 @@ import { UIIcon } from "@shared/ui/ui-icon/UIIcon.tsx";
 import type { INavbarItem } from "@shared/ui/ui-nav-item/config/nav-item.config.ts";
 
 export const createNavBarItems = (
-    userId?: string,
+    userId: string,
+    fn: {
+        logout: () => void;
+        openAuthModal: () => void;
+    }
 ): INavbarItem[] => [
     {
         name: 'Лента',
@@ -25,25 +29,25 @@ export const createNavBarItems = (
     {
         name: 'Написать пост',
         icon: <UIIcon name={'Write'} />,
-        isVisible: false,
+        isVisible: userId !== undefined,
     },
     {
         name: 'История',
         url: '/history',
         icon: <UIIcon name={'History'} />,
-        isVisible: false,
+        isVisible: userId !== undefined,
     },
     {
         name: 'Лайки',
         url: '/favorites',
         icon: <UIIcon name={'Favorite'} />,
-        isVisible: false,
+        isVisible: userId !== undefined,
     },
     {
         name: 'Настройки',
         url: '/settings',
         icon: <UIIcon name={'Settings'} />,
-        isVisible: false,
+        isVisible: userId !== undefined,
     },
     {
         name: 'Тема',
@@ -53,11 +57,13 @@ export const createNavBarItems = (
     {
         name: 'Выход',
         icon: <UIIcon name={'Exit'} />,
-        isVisible: false,
+        isVisible: userId !== undefined,
+        onClick: fn.logout,
     },
     {
         name: 'Вход',
         icon: <UIIcon name={'Exit'} />,
-        isVisible: true,
+        isVisible: userId === undefined,
+        onClick: fn.openAuthModal,
     },
 ];

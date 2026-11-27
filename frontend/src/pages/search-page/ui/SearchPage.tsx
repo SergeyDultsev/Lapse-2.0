@@ -1,4 +1,4 @@
-import {type FC, useState} from "react";
+import { type FC, useState} from "react";
 import { UIButton } from "@shared/ui/ui-button/UIButton.tsx";
 
 import styles from "./SearchPage.module.scss";

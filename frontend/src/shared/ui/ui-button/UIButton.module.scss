@@ -1,5 +1,6 @@
 .ui-button {
   display: flex;
+  justify-content: center;
   gap: 5px;
   border-radius: var(--border-radius-medium);
   transition: all .2s ease-in-out;
