@@ -15,6 +15,7 @@ export interface SettingsItem {
 
 export type tSettingsAction =
     | 'change-username'
+    | 'change-bio'
     | 'toggle-theme'
     | 'delete-account';
 
@@ -39,7 +40,7 @@ export const createSettingsBarItems = (
         buttonSize: 'sm',
         buttonVariant: 'primary',
         buttonType: 'button',
-        action: 'change-username',
+        action: 'change-bio',
     },
     {
         id: 'theme',
