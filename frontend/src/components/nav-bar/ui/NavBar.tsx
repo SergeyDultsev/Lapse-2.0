@@ -2,11 +2,14 @@ import type { FC } from "react"
 import { Link } from "react-router";
 import { createNavBarItems } from "@components/nav-bar/config/navbar.config.tsx";
 import { UINavItem } from "@shared/ui/ui-nav-item/ui/UINavItem.tsx";
+import { useMe } from "@modules/auth/model/auth.queries.ts";
 
 import styles from './NavBar.module.scss';
 
 export const NavBar: FC = () => {
-    const items = createNavBarItems();
+    const { data: me } = useMe();
+
+    const items = createNavBarItems(me?.userId);
 
     return (
         <section className={styles['nav-bar']}>

@@ -4,8 +4,13 @@ import { useUser } from "@modules/users/model/user.queries.ts";
 import {useParams} from "react-router";
 
 export const ProfilePage: FC = () => {
-    const { userId } = useParams<{ userId: string }>()
-    const { data: user, isLoading, isError } = useUser(userId);
+    const { userId } = useParams<{ userId: string }>();
+
+    const {
+        data: user,
+        isLoading,
+        isError
+    } = useUser(userId ?? '');
 
     return (
         <main className={'main'}>

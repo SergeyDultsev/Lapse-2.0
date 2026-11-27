@@ -47,7 +47,11 @@ export const useUserApi = () => {
     const getSearch = async (query: string, signal?: AbortSignal) => {
         const baseUrl = import.meta.env.VITE_API_URL;
 
-        const response  = await fetch(`${baseUrl}/users/?search=${query}`, {
+        const params = new URLSearchParams({
+            search: query,
+        });
+
+        const response = await fetch(`${baseUrl}/users?${params.toString()}`, {
             method: "GET",
             mode: "cors",
             credentials: "include",

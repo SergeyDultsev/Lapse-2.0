@@ -21,7 +21,7 @@ export class UserController {
 
     return {
       data: users,
-      message: 'Users recommendation',
+      message: 'Users by query',
       statusCode: HttpStatus.OK,
     };
   }

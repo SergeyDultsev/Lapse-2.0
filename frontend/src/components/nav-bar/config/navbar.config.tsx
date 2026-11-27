@@ -1,7 +1,9 @@
 import { UIIcon } from "@shared/ui/ui-icon/UIIcon.tsx";
 import type { INavbarItem } from "@shared/ui/ui-nav-item/config/nav-item.config.ts";
 
-export const createNavBarItems = (): INavbarItem[] => [
+export const createNavBarItems = (
+    userId?: string,
+): INavbarItem[] => [
     {
         name: 'Лента',
         url: '/',
@@ -10,9 +12,9 @@ export const createNavBarItems = (): INavbarItem[] => [
     },
     {
         name: 'Профиль',
-        url: '/profile',
+        url: `/profile/${userId}`,
         icon: <UIIcon name={'Profile'} />,
-        isVisible: true,
+        isVisible: userId !== undefined,
     },
     {
         name: 'Поиск',

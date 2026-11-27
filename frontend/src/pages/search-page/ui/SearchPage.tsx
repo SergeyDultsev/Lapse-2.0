@@ -1,4 +1,4 @@
-import {type FC, useEffect, useState} from "react";
+import {type FC, useState} from "react";
 import { UIButton } from "@shared/ui/ui-button/UIButton.tsx";
 
 import styles from "./SearchPage.module.scss";
@@ -10,7 +10,6 @@ import { Avatar } from "@modules/users/components/avatar/ui/Avatar.tsx";
 import type { IUser } from "@modules/users/model/IUser.ts";
 
 export const SearchPage: FC = () => {
-    const [query, setQuery] = useState<string>('');
     const [debouncedSearch, setDebouncedSearch] = useState<string>('');
 
     const navigate = useNavigate();
@@ -20,7 +19,6 @@ export const SearchPage: FC = () => {
     });
 
     const handleSearch = (val: string) => {
-        setQuery(val);
         updateDebouncedSearch(val);
     }
 
@@ -36,7 +34,7 @@ export const SearchPage: FC = () => {
         data: searchData = [],
         isLoading: isLoadingSearch,
         isError: isErrorSearch,
-    } = useUsersSearch(query);
+    } = useUsersSearch(debouncedSearch);
 
     const handleRedirect = (userId: string) => navigate(`/profile/${userId}`);
 

@@ -82,7 +82,6 @@ export class UserService {
     return {
       userId: user.userId,
       username: user.username,
-      email: user.email,
       bio: user.bio,
       avatarUrl: user.avatarUrl,
       meta: {

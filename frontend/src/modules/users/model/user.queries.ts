@@ -24,8 +24,11 @@ export const useUsersRecommendation = (id?: string | null) => {
 export const useUsersSearch = (query?: string) => {
     const { getSearch } = useUserApi();
 
+    const normalizedQuery = query?.trim() ?? '';
+
     return useQuery({
         queryKey: userKeys.search(query),
-        queryFn: ({ signal }) => getSearch(query, signal),
+        queryFn: ({ signal }) => getSearch(normalizedQuery, signal),
+        enabled: Boolean(normalizedQuery),
     });
 };

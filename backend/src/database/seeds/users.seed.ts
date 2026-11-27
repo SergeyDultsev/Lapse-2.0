@@ -14,7 +14,7 @@ export class UsersSeeder implements Seeder {
         username: 'richard_hendricks',
         email: 'richard@lapse.com',
         bio: 'CEO of Pied Piper. Compression is my life.',
-        avatar:
+        avatarUrl:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJCo4AH60LiM22ir19Cwblp4FBVZiUXhHQiCJPTOxp-w&s=10',
       },
       {
