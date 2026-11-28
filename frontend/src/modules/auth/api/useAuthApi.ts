@@ -1,9 +1,8 @@
-
-// TODO: Сделать кастомный FETCH
-import type { IResponse } from "@shared/IResponse.ts";
+import type { IResponse } from "@shared/interfaces/IResponse.ts";
 import type { IUser } from "@modules/users/model/IUser.ts";
 import type { ILogin, IRegister} from "@modules/auth/model/IAuth.ts";
 
+// TODO: Сделать кастомный FETCH
 export const useAuthApi = () => {
 
     const register = async (registerData: IRegister) => {
@@ -86,10 +85,27 @@ export const useAuthApi = () => {
         return user.data;
     }
 
+    const refreshSession = async () => {
+        const baseUrl = import.meta.env.VITE_API_URL;
+
+        const response= await fetch(`${baseUrl}/auth/refresh`, {
+            method: "POST",
+            mode: "cors",
+            credentials: "include",
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+    }
+
     return {
         register,
         login,
         checkAuth,
         logout,
+        refreshSession,
     }
 }

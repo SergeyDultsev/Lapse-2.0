@@ -3,6 +3,8 @@ import {
     useCallback, useContext,
     useMemo,
     useState,
+    type FC,
+    type ReactNode
 } from 'react';
 
 type tModalContext = {
@@ -12,7 +14,7 @@ type tModalContext = {
 };
 
 type tModalProviderProps = {
-    children: React.ReactNode;
+    children: ReactNode;
 };
 
 export const ModalContext = createContext<tModalContext | null>(null);
@@ -25,10 +27,10 @@ export const useModal = (): tModalContext => {
     return modal;
 };
 
-export const ModalProvider: React.FC<tModalProviderProps> = ({ children }) => {
-    const [isOpen, setOpen] = useState<React.ReactNode | null>(null);
+export const ModalProvider: FC<tModalProviderProps> = ({ children }) => {
+    const [isOpen, setOpen] = useState<ReactNode | null>(null);
 
-    const openModal = useCallback((modal: React.ReactNode) => {
+    const openModal = useCallback((modal: ReactNode) => {
         setOpen(modal);
     }, []);
 

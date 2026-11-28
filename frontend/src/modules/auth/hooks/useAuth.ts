@@ -1,7 +1,7 @@
 import { useLogin, useLogout, useRegister } from "@modules/auth/model/auth.queries.ts";
 import type { ILogin, IRegister } from "@modules/auth/model/IAuth.ts";
 import { useState } from "react";
-import  { authConfig, type tCredentialsForm } from "@modules/auth/config/auth.config.ts";
+import { authConfig, type tCredentialsForm } from "@modules/auth/config/auth.config.ts";
 
 export const useAuth = (mode?: tCredentialsForm) =>  {
     const loginMutation = useLogin();
